@@ -14,7 +14,7 @@ const webdriver = require('selenium-webdriver')
 //     console.log(`server connected successfully on ${LINK} `);
 // })
 // https://www.cutebabyvote.com/august-2022/?contest=photo-detail&photo_id=95365
-let voteCount = 0;
+let voteCount = 420;
 
 let voterMachine = () =>{
 let driver = new webdriver.Builder()
@@ -23,15 +23,14 @@ let driver = new webdriver.Builder()
     By= webdriver.By
 
     driver.get('https://www.cutebabyvote.com/august-2022/?contest=photo-detail&photo_id=95365').then(data=>{
-        console.log("loaded successfully");
     driver.findElement(By.className('pc-image-info-box-button')).then(button=>{
-        console.log("Button loaded", );
       let random = Math.floor(Math.random() * 10) + 1;
       driver.executeScript("arguments[0].scrollIntoView(true);", button);
       setTimeout(() => {
       button.click().then(success=>{
+      let date = new Date()
             voteCount +=1
-            console.log("Total Votes given", voteCount);
+            console.log("Total Votes given", voteCount, " at ", date.toLocaleString());
             driver.quit()
         })
       }, 6000 * random);
@@ -48,4 +47,4 @@ let driver = new webdriver.Builder()
 
 setInterval(() => {
  voterMachine()   
-}, 1800000);
+}, 2000000);
