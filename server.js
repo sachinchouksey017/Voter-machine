@@ -30,7 +30,7 @@ let driver = new webdriver.Builder()
       button.click().then(success=>{
       let date = new Date()
             voteCount +=1
-            console.log("Total Votes given", voteCount, " at ", date.toLocaleString());
+            console.log("Total Votes given ", voteCount, " at ", date.toLocaleString());
             driver.quit()
         })
       }, 6000 * random);
