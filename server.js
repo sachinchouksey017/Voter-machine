@@ -36,7 +36,7 @@ let driver = new webdriver.Builder()
       }, 6000 * random);
     })
     .catch(err=>{
-        console.log("not find");
+        console.log("not find ");
     }
     )
 
